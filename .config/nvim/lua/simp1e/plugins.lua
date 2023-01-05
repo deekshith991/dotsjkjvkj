@@ -88,9 +88,11 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
 	use({ "SmiteshP/nvim-navic" })
+	use({ "glepnir/lspsaga.nvim" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
