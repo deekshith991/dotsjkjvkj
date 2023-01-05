@@ -112,6 +112,7 @@ return packer.startup(function(use)
 
 	-- Note that you have to install deno first
 	use({ "toppair/peek.nvim", run = "deno task --quiet build:fast" })
+	use({ "karb94/neoscroll.nvim" })
 
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
