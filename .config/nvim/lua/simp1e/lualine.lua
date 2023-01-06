@@ -52,7 +52,7 @@ local vim_icons = {
 	function()
 		return ""
 	end,
-	separator = { left = "" },
+	separator = { left = "", right = "" },
 }
 
 local modes = {
@@ -156,7 +156,7 @@ lualine.setup({
 	sections = {
 		lualine_a = {
 			vim_icons,
-			modes,
+			-- modes,
 		},
 		lualine_b = {},
 		lualine_c = {
