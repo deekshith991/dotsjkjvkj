@@ -1,4 +1,5 @@
 #!/bin/sh
 
-cd ~/Repos/PersonalProjects/startpage/
+
+cd ~/Repos/PersonalProjects/startpage
 python -m http.server 10001
