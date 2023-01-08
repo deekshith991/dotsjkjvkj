@@ -1,30 +1,21 @@
 #!/usr/bin/env bash
 
-## Author : Aditya Shakya (adi1090x)
-## Github : @adi1090x
-#
-## Rofi   : Power Menu
-#
-## Available Styles
-#
-## style-1   style-2   style-3   style-4   style-5
-
 # Current Theme
 dir="~/.config/waybar/scripts/power-menu/"
 theme='style'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
-host=`hostname`
+host=`cat /etc/hostname`
 
 # Options
-shutdown=' Shutdown'
+shutdown=' Shutdown'
 reboot='  Reboot'
-lock=' Lock'
-suspend=' Suspend'
+lock=' Lock'
+suspend='  Suspend'
 logout='  Logout'
-yes=' Yes'
-no=' No'
+yes='וֹ Yes'
+no='תּ No'
 
 # Rofi CMD
 rofi_cmd() {
@@ -62,7 +53,7 @@ run_cmd() {
 	selected="$(confirm_exit)"
 	if [[ "$selected" == "$yes" ]]; then
 		if [[ $1 == '--shutdown' ]]; then
-		  systemctl poweroff
+			systemctl poweroff
 		elif [[ $1 == '--reboot' ]]; then
 			systemctl reboot
 		elif [[ $1 == '--suspend' ]]; then
@@ -70,7 +61,17 @@ run_cmd() {
 			amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-      hyprctl dispatch exit 1
+			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
+				openbox --exit
+			elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
+				bspc quit
+			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
+				i3-msg exit
+			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
+				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+			elif [[ "$DESKTOP_SESSION" == 'Hyprland' ]]; then
+        hyprctl dispatch exit 1
+			fi
 		fi
 	else
 		exit 0
@@ -92,7 +93,7 @@ case ${chosen} in
 		elif [[ -x '/usr/bin/i3lock' ]]; then
 			i3lock
 		elif [[ -x '/usr/bin/Hyprland' ]]; then
-      swaylock
+		  swaylock	
 		fi
         ;;
     $suspend)
