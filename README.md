@@ -49,16 +49,20 @@
   ```
   yay -S rofi dunst waybar-hyprland-git kitty swaybg swaylock-effects swayidle pamixer light brillo
   ```
+
 - Other Ultilities:
-    - For screenshots tools to be work you have to install grim, swappy, slurp:
-     
-      ```
-      yay -S grim swappy slurp
-      ```
-    - Also, emoji icons selector 
-      ```
-      yay -S rofi-emoji
-      ```
+
+  - For screenshots tools to be work you have to install grim, swappy, slurp:
+
+    ```
+    yay -S grim swappy slurp
+    ```
+
+  - Emoji icons selector
+    ```
+    yay -S rofi-emoji
+    ```
+    > Also see [must have apps ](https://wiki.hyprland.org/Useful-Utilities/Must-have/)
 
 - Also, if you want gtk applications to fits with my colorscheme on my dots, I recommend the [decay themes](https://github.com/decaycs/decay-gtk).
   To change the gtk themes I use nwg-look.
